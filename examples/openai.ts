@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import { createAgent } from 'hataraku';
-import { createOpenAIModel } from '../src/core/providers';
+import { createOpenAIModel } from '../src-old/core/providers';
 
 // Initialize agent with OpenAI
 async function initializeAgent() {

@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import * as path from 'path';
 import { analyzeFileTask } from './agents/jsdoc';
-import { findNestedExports } from '../src/experimental/analyzer/export-analyzer';
+import { findNestedExports } from '../src-old/experimental/analyzer/export-analyzer';
 
 interface TaskResult {
   filePath: string;
