@@ -25,6 +25,7 @@ import { distance } from 'fastest-levenshtein';
 import * as sound from 'sound-play';
 import { readdirSync } from 'node:fs';
 import * as process$1 from 'node:process';
+import { MCPConfiguration } from '@mastra/mcp';
 import { pathToFileURL } from 'url';
 import { createServer } from 'http';
 import { Http2ServerRequest } from 'http2';
@@ -1761,11 +1762,20 @@ Git Branch: ${require$$0.execSync('git rev-parse --abbrev-ref HEAD 2>/dev/null |
 `;
 }
 
+const mcp = new MCPConfiguration({
+  servers: {
+    ec: {
+      command: "ec",
+      args: ["mcp"]
+    }
+  }
+});
+
 const openRouter = createOpenRouter({
   apiKey: process.env.OPEN_ROUTER_API_KEY
 });
 const model = openRouter.chat("anthropic/claude-3.7-sonnet", {});
-function codingAgent(provider) {
+async function codingAgent(provider) {
   return new Agent({
     name: "Coding Agent",
     instructions: `
@@ -1773,11 +1783,11 @@ function codingAgent(provider) {
         ${getEnvironmentInfo()}
     `,
     model,
-    tools: CODING_TOOLS
+    tools: { ...CODING_TOOLS, ...await mcp.getTools() }
   });
 }
 
-const openrouterCodingAgent = codingAgent();
+const openrouterCodingAgent = await codingAgent();
 
 const mastra = new Mastra({
   workflows: {

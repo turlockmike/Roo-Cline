@@ -19,3 +19,4 @@ roo-cline-*.vsix
 .env
 .agent/
 .aider*
+.mastra/

@@ -12,7 +12,9 @@ const model = openRouter.chat('anthropic/claude-3.7-sonnet', {
 
 });
 
-export function codingAgent(provider: 'openrouter') {
+import { mcp } from '../tools/mcp';
+
+export async function codingAgent(provider: 'openrouter' | 'mcp') {
     return new Agent({
         name: 'Coding Agent',
     instructions: `
@@ -20,6 +22,6 @@ export function codingAgent(provider: 'openrouter') {
         ${getEnvironmentInfo()}
     `,
     model: model,
-    tools: CODING_TOOLS,
+    tools: { ...CODING_TOOLS, ...(await mcp.getTools()) },
     })
 }
