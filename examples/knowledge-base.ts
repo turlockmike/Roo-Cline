@@ -1,6 +1,6 @@
 import { BedrockAgentRuntimeClient } from '@aws-sdk/client-bedrock-agent-runtime'
 import { fromIni } from '@aws-sdk/credential-providers'
-import { createKnowledgeBaseProvider } from '../src/core/providers/knowledge-base'
+import { createKnowledgeBaseProvider } from '../src-old/core/providers/knowledge-base'
 
 /**
  * This example demonstrates how to use the AWS Bedrock Knowledge Base provider.

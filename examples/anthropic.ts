@@ -1,6 +1,6 @@
 import chalk from 'chalk'
 import { createAgent } from 'hataraku'
-import { createAnthropicModel } from '../src/core/providers'
+import { createAnthropicModel } from '../src-old/core/providers'
 
 // Initialize agent with Anthropic
 async function initializeAgent() {

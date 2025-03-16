@@ -1,6 +1,6 @@
 import chalk from 'chalk'
 import { createAgent } from 'hataraku'
-import { createVertexModel } from '../src/core/providers'
+import { createVertexModel } from '../src-old/core/providers'
 
 // Initialize agent with Google Vertex AI
 async function initializeAgent() {

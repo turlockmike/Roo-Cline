@@ -1,6 +1,6 @@
 import chalk from 'chalk'
-import { getMcpTools } from '../src/core/mcp/tool-wrapper'
-import { JiraGetTicketTool } from '../src/core/mcp/types'
+import { getMcpTools } from '../src-old/core/mcp/tool-wrapper'
+import { JiraGetTicketTool } from '../src-old/core/mcp/types'
 
 async function main() {
   console.log(chalk.cyan('\n🎫 MCP Jira Example\n'))
